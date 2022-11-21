@@ -1,0 +1,8 @@
+<ul>
+  <% @experiences.each do |experience| %>
+    <li><%= experience.title %></li>
+    <li><%= experience.city %></li>
+    <li><%= experience.category %></li>
+    <li><%= experience.duration %></li>
+  <% end %>
+</ul>
