@@ -22,6 +22,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_155409) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "experiences", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "city"
+    t.integer "price"
+    t.string "duration"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
