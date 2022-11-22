@@ -8,5 +8,5 @@ class Experience < ApplicationRecord
   validates :price, presence: true
   validates :duration, presence: true
   validates :category, presence: true
-  validates :category, length: { minimum: 500, message: "500 character minimum" }
+  validates :description, length: { minimum: 500, message: "500 character minimum" }
 end
