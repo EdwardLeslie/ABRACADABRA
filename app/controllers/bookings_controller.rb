@@ -12,20 +12,23 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.status = "pending"
+    @booking.experience = Experience.find(params[:experience_id])
     if @booking.save
-      redirect_to @booking, notice: "Booking was successfully created."
+      redirect_to dashboard_path, notice: "Booking was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      render "experiences/show", status: :unprocessable_entity
     end
   end
 
   def new
     @booking = Booking.new
+    @experience = Experience.find(params[:experience_id])
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:status)
+    params.require(:booking).permit(:start_date,:end_date)
   end
 end
