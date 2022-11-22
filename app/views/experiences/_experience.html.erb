@@ -1,11 +1,9 @@
 
   <% @experiences.each do |experience| %>
-    <div id="<%= dom_id experience %>" class="card card-body m3 text-center bg-card">
-      <strong><%= experience.title %></strong>
+    <div id="<%= dom_id experience %>" class="card card-body text-center bg-card d-inline-flex justify-content-center p-2 m-2 bd-highlight">
+      <div><strong><%= experience.title %></strong></div>
         <%= experience.city %>
-            <br>
         <%= experience.category %>
-            <br>
         <%= experience.duration %>
       <% if experience.photo.attached? %>
         <div class= "rounded mx-auto d-block" alt="user uploaded photo"><%= cl_image_tag experience.photo.key, height: 300, width: 400, crop: :fill %></div>
