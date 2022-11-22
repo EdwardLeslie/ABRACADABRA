@@ -6,6 +6,10 @@
     <li><%= experience.city %></li>
     <li><%= experience.category %></li>
     <li><%= experience.duration %></li>
-    <%= cl_image_tag @experience.photo.key, height: 300, width: 400, crop: :fill %>
+    <% if experience.photo.attached? %>
+    <%= cl_image_tag experience.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+    <%= image_tag "generic.jpg", alt: "generic magician", width: 200 %>
+    <% end %>
   <% end %>
 </ul>
