@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'experiences/new'
+  get '/dashboard', to: "pages#dashboard"
   # root to: "pages#home"
   root to: "experiences#index"
   devise_for :users
