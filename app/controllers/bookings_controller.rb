@@ -7,8 +7,6 @@ class BookingsController < ApplicationController
     @booking.update!(status: 'declined')
     redirect_to booking_path(@booking)
   end
-  def create
-    Booking.create(params[:booking])
   end
   def create
     @booking = Booking.new(booking_params)
