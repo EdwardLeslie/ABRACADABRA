@@ -1,4 +1,6 @@
 class ExperiencesController < ApplicationController
+
+
   def index
     @experiences = Experience.all
   end
@@ -23,6 +25,7 @@ class ExperiencesController < ApplicationController
   private
 
   def experience_params
-    params.require(:experience).permit(:title)
+    params.require(:experience).permit(:title, :photo)
   end
+
 end
