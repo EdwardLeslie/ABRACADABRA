@@ -1,7 +1,12 @@
-<h1>New Experience</h1>
-<p>Find me in app/views/experiences/new.html.erb</p>
-<%= render "form", experience: @experience %>
-<br>
-<div>
-  <%= link_to "Back to experience", experiences_path %>
+<div class= "container bg-card">
+
+  <h1>List a New Magic Experience</h1>
+  <p>Find me in app/views/experiences/new.html.erb</p>
+  <%= render "form", experience: @experience %>
+    <br>
+  <div>
+    <div class="btn m-3 p-2 card">
+    <%= link_to "Back to experience", experiences_path %>
+    </div>
+  </div>
 </div>

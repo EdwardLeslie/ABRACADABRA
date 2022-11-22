@@ -1,15 +1,8 @@
-<h1>Hi!</h1>
 
-<ul>
-  <% @experiences.each do |experience| %>
-    <li><%= experience.title %></li>
-    <li><%= experience.city %></li>
-    <li><%= experience.category %></li>
-    <li><%= experience.duration %></li>
-    <% if experience.photo.attached? %>
-    <%= cl_image_tag experience.photo.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-    <%= image_tag "generic.jpg", alt: "generic magician", width: 200 %>
-    <% end %>
-  <% end %>
-</ul>
+
+  <div class="container bg-card text-center">
+    <h2>Available Experiences</h2>
+      <div class= "card card-body">
+        <%= render "experience" %>
+      </div>
+    </div>
