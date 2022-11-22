@@ -1,24 +1,26 @@
-<h1> All Bookings </h1>
+<div>
+  <h1> All Bookings </h1>
 
-<table class="table table-striped">
- <thead>
-  <tr>
-    <th>Booking ID</th>
-    <th>Experience Name</th>
-    <th>User</th>
-    <th>Start Date</th>
-    <th>End Date</th>
-  </tr>
- </thead>
- <tbody>
- <% @bookings.each do |booking| %>
-  <tr>
-    <td><%= booking.start_date %></td>
-    <td><%= booking.end_date %></td>
-    <td><%= booking.user.email %></td>
-    <td><%= booking.status %></td>
-    <td><%= booking.experience.title %></td>
-  </tr>
- <% end %>
-</tbody>
-</table>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Booking ID</th>
+      <th>Experience Name</th>
+      <th>User</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @bookings.each do |booking| %>
+    <tr>
+      <td><%= booking.start_date %></td>
+      <td><%= booking.end_date %></td>
+      <td><%= booking.user.email %></td>
+      <td><%= booking.status %></td>
+      <td><%= booking.experience.title %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  </table>
+</div>

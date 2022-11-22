@@ -1,7 +1,13 @@
-<h2><%= @experience.title %></h2>
-<p><%= @experience.description %></p>
-<p><%= @experience.city %></p>
-<p><%= @experience.price %></p>
-<p><%= @experience.duration %></p>
-<p><%= @experience.category %></p>
-
+<div class = "container bg-card">
+  <% if @experience.photo.attached? %>
+          <div class= "rounded mx-auto d-block"><%= cl_image_tag experience.photo.key, height: 300, width: 400, crop: :fill%></div>
+        <% else %>
+          <div class= "rounded mx-auto d-block m-3"><%= image_tag "generic.jpg", alt: "generic magician", width: 200 %></div>
+        <% end %>
+    <h2><%= @experience.title %></h2>
+      <%= @experience.description %>
+      <%= @experience.city %>
+      <%= @experience.price %>
+      <%= @experience.duration %>
+      <%= @experience.category %>
+</div>
