@@ -43,8 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_133322) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
     t.text "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_133322) do
     t.bigint "experience_id", null: false
     t.integer "magician_id"
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
+    t.date "date"
     t.index ["experience_id"], name: "index_bookings_on_experience_id"
   end
 
@@ -77,6 +76,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_133322) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
+    t.string "first_name"
+    t.string "last_name"
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
