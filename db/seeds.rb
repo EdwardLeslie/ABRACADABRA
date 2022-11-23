@@ -7,7 +7,12 @@ puts "destroyed user"
 Booking.destroy_all
 puts "destroyed bookings"
 
-User.create!(email: "hello@hello.com", password: "123456")
+User.create!(email: "test@test.com",
+            password: "123456",
+            first_name: "Jane/Joe",
+            last_name: "Smith",
+            nickname: "engineer")
+
 
 5.times do
   new_user = User.create!(password: "password",
@@ -23,7 +28,7 @@ User.create!(email: "hello@hello.com", password: "123456")
                                       description: Faker::Quote.most_interesting_man_in_the_world,
                                       city: Faker::Address.city,
                                       price: [50, 100, 200, 300, 400].sample,
-                                      duration: ["2h", "4h", "6h"].sample,
+                                      duration: ["2 hours", "4 hours", "6 hours"].sample,
                                       category: ["Childrens Magic", "Sleight of Hand", "Animal Magic", "Comedy Magic", "Illusionist", "Escapologist", "Mentalist"].sample,
                                       user: new_user
                                       )

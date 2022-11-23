@@ -9,6 +9,11 @@ class BookingsController < ApplicationController
     redirect_to booking_path(@booking)
   end
 
+  def new
+    @booking = Booking.new
+    @experience = Experience.find(params[:experience_id])
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
@@ -21,14 +26,9 @@ class BookingsController < ApplicationController
     end
   end
 
-  def new
-    @booking = Booking.new
-    @experience = Experience.find(params[:experience_id])
-  end
-
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date,:end_date)
+    params.require(:booking).permit(:date)
   end
 end
