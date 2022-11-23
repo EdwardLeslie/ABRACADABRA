@@ -11,4 +11,8 @@
       <%= @experience.price %>
       <%= @experience.duration %>
       <%= @experience.category %>
+
+  <button type="button" class="btn btn-blank">
+  <%= link_to "Request experience", new_experience_booking_path(@experience) %>
+  </button>
 </div>
