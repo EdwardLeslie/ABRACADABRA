@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'experiences/new'
   get '/dashboard', to: "pages#dashboard"
-  
+
   # root to: "pages#home"
   root to: "experiences#index"
   devise_for :users
@@ -12,4 +12,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :bookings, only: :destroy
+
+  resources :bookings do
+    member do
+      patch :accept
+      patch :decline
+    end
+  end
 end
