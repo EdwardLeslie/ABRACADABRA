@@ -1,16 +1,16 @@
 
   <% @experiences.each do |experience| %>
-    <div id="<%= dom_id experience %>" class="card card-body text-center bg-card d-inline-flex justify-content-center p-2 m-2 bd-highlight">
-      <div><strong><%= experience.title %></strong></div>
-        <%= experience.city %>
-        <i class="fa-thin fa-sparkles"></i>
-        <%= experience.category %>
-        <i class="fa-thin fa-sparkles"></i>
-        <%= experience.duration %>
-      <% if experience.photo.attached? %>
-        <div class= "rounded mx-auto d-block" alt="user uploaded photo"><%= cl_image_tag experience.photo.key, height: 300, width: 400, crop: :fill %></div>
-      <% else %>
-        <div class= "rounded mx-auto d-block"><%= image_tag "generic.jpg", alt: "generic magician", width: 200 %></div>
-      <% end %>
-    </div>
+    <%= link_to experience_path(experience) do %>
+      <div id="<%= dom_id experience %>" class="card card-body text-center bg-card d-inline-flex justify-content-center p-2 m-2 bd-highlight">
+        <div><strong><%= experience.title %></strong></div>
+          <%= experience.city %>
+          <%= experience.category %>
+          <%= experience.duration %>
+        <% if experience.photo.attached? %>
+          <div class= "rounded mx-auto d-block" alt="user uploaded photo"><%= cl_image_tag experience.photo.key, height: 300, width: 400, crop: :fill %></div>
+        <% else %>
+          <div class= "rounded mx-auto d-block"><%= image_tag "generic.jpg", alt: "generic magician", width: 200 %></div>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
