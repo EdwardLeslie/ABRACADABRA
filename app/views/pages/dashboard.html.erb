@@ -1,16 +1,15 @@
 <div class="container bg-card">
-  <h1> All Experiences </h1>
+  <h1> Your Experiences </h1>
 </div>
-
   <div class="container bg-card">
     <div class= "listings">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Booking ID</th>
+              <th>Booking Date</th>
               <th>Experience Name</th>
               <th>User</th>
-              <th>Date</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -22,8 +21,8 @@
               <tr>
                 <td><%= booking.date.to_fs(:long_ordinal) %></td>
                 <td><%= booking.magician.email %></td>
-                <td><%= booking.status %></td>
                 <td><%= booking.experience.title %></td>
+                <td><%= booking.status %></td>
               </tr>
                 <%= link_to 'Accept', accept_booking_path(booking), method: :patch %>
                 <%= link_to 'Decline', decline_booking_path(booking), method: :patch %>
@@ -48,5 +47,4 @@
         </table>
     </div>
   </div>
-
 </div>

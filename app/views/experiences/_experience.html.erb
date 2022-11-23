@@ -1,7 +1,7 @@
 
   <% @experiences.each do |experience| %>
     <%= link_to experience_path(experience) do %>
-      <div id="<%= dom_id experience %>" class="card card-body text-center bg-card d-inline-flex justify-content-center p-2 m-2 bd-highlight">
+      <div id="<%= dom_id experience %>" class="card card-body jumpcard text-center bg-card d-inline-flex justify-content-center p-2 m-2 bd-highlight">
         <div><strong><%= experience.title %></strong></div>
           <%= experience.city %>
           <%= experience.category %>
