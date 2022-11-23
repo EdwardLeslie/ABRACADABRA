@@ -1,5 +1,5 @@
 
-<div class = "container bg-card">
+<div class="container bg-card mt-2 text-center">
       <h2><%= @experience.title %></h2>
       <%= @experience.description %>
       <% if @experience&.photo&.attached? %>
@@ -7,14 +7,12 @@
         <% else %>
           <div class= "rounded mx-auto d-block m-3"><%=image_tag src="https://source.unsplash.com/random", alt: "random-image", width: 200 %></div>
         <% end %>
-      <%= @experience.city %>
-      <i class="fa-solid fa-hand-sparkles"></i>
-      <%= @experience.price %>
-      <i class="fa-solid fa-wand-magic-sparkles"></i>
-      <%= @experience.duration %>
-      <i class="fa-solid fa-hat-wizard"></i>
-      <%= @experience.category %>
-  <button type="button" class="card card-body btn m-3 p-2 card">
+        <br>
+      <p>Location: <%= @experience.city %></p>
+      <p>Price: <%= @experience.price %> </p>
+      <p>Duration: <%= @experience.duration %> </p>
+      <p>Category: <%= @experience.category %> </p>
+  <div class="card card-body btn m-3 p-2 card">
   <%= link_to "Request experience", new_experience_booking_path(@experience) %>
-  </button>
+  </div>
 </div>
