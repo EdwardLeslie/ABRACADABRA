@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
+  STATUS = ["pending", "accepted", "declined"]
   belongs_to :user
   belongs_to :experience
-  validates :start_date, presence: true
-  validates :end_date, presence: true
+  validates :date, presence: true
+  validates :status, inclusion: { in: STATUS }
 end
