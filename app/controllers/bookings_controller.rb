@@ -16,9 +16,12 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user = current_user
+    experience = Experience.find(params[:experience_id])
+    magician = experience.user
+    @booking.magician_id = magician.id
+    @booking.customer_id = current_user.id
     @booking.status = "pending"
-    @booking.experience = Experience.find(params[:experience_id])
+    @booking.experience = experience
     if @booking.save
       redirect_to dashboard_path, notice: "Booking was successfully created."
     else
