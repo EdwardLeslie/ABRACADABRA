@@ -18,7 +18,7 @@
           <tbody>
             <% @bookings.each do |booking| %>
               <tr>
-                <td><%= booking.date %></td>
+                <td><%= booking.date.to_fs(:long_ordinal) %></td>
                 <td><%= booking.user.email %></td>
                 <td><%= booking.status %></td>
                 <td><%= booking.experience.title %></td>
@@ -47,7 +47,7 @@
             <tbody>
               <% @bookings.each do |booking| %>
                 <tr>
-                  <td><%= booking.date %></td>
+                  <td><%= booking.date.to_fs(:long_ordinal)%></td>
                   <td><%= booking.user.email %></td>
                   <td><%= booking.status %></td>
                   <td><%= booking.experience.title %></td>
