@@ -18,7 +18,10 @@
       <td><%= booking.status %></td>
       <td><%= booking.experience.title %></td>
     </tr>
+    <%= link_to 'Accept', accept_booking_path(booking), method: :patch %>
+    <%= link_to 'Decline', decline_booking_path(booking), method: :patch %>
   <% end %>
+
   </tbody>
   </table>
 </div>
