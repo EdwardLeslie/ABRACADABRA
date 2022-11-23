@@ -9,7 +9,7 @@
         <% if experience.photo.attached? %>
           <div class= "rounded mx-auto d-block" alt="user uploaded photo"><%= cl_image_tag experience.photo.key, height: 300, width: 400, crop: :fill %></div>
         <% else %>
-          <div class= "rounded mx-auto d-block"><%= image_tag "generic.jpg", alt: "generic magician", width: 200 %></div>
+         <div class= "rounded mx-auto d-block"><%=image_tag src="https://source.unsplash.com/random", alt: "random-image", width: 200 %></div>
         <% end %>
       </div>
     <% end %>

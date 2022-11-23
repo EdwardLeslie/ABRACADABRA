@@ -1,5 +1,10 @@
 
 <div class = "container bg-card">
+      <%= @experience.city %>
+      <i class="fa-solid fa-hand-sparkles"></i>
+      <%= @experience.price %>
+      <%= @experience.duration %>
+      <%= @experience.category %>
       <% if @experience&.photo&.attached? %>
           <div class= "rounded mx-auto d-block"><%= cl_image_tag experience.photo.key, height: 300, width: 400, crop: :fill%></div>
         <% else %>
