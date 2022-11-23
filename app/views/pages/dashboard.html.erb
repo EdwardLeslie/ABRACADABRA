@@ -1,5 +1,5 @@
 <div class="container bg-card">
-  <h1> All Bookings </h1>
+  <h1> Your Experiences </h1>
     <table class="table table-striped">
   <thead>
     <tr>
@@ -13,8 +13,7 @@
   <tbody>
   <% @bookings.each do |booking| %>
     <tr>
-      <td><%= booking.start_date %></td>
-      <td><%= booking.end_date %></td>
+      <td><%= booking.date.to_fs(:long_ordinal)%></td>
       <td><%= booking.user.email %></td>
       <td><%= booking.status %></td>
       <td><%= booking.experience.title %></td>
