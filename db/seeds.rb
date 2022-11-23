@@ -37,7 +37,8 @@ User.create!(email: "test@test.com",
     3.times do
       new_booking = Booking.create!(date: Faker::Date.forward(days: 23),
                                     status: Booking::STATUS.sample,
-                                    user: new_user,
+                                    customer: new_user,
+                                    magician: new_user,
                                     experience: new_experience)
 
       puts "#{new_booking.id} was created"
