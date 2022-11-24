@@ -1,27 +1,28 @@
-<div class="container bg-card mt-2">
-  <h1> Your Experiences </h1>
-</div>
-  <div class="container bg-card mt-2">
-    <div class= "listings">
+<div class="container">
+  <div class="card card-body bg-card mt-2">
+    <h1> Your Magic Shows</h1>
+  </div>
+  <div class= "listings">
+    <div class="card card-body bg-card mt-2">
         <table class="table table-striped">
           <thead>
-            <tr>
-              <th>Booking Date</th>
-              <th>Experience Name</th>
-              <th>User</th>
-              <th>Status</th>
-            </tr>
+              <tr>
+                <th>Booking Date</th>
+                <th>Show Title</th>
+                <th>User</th>
+                <th>Status</th>
+              </tr>
           </thead>
           <tbody>
-            <h5>Magician bookings</h5>
+              <h5>Shows You have Listed</h5>
             <% if @magician_bookings.empty? %>
-              <p>You have not listed any experiences</p>
+              <p>You have not listed any experiences...</p>
             <% else %>
               <% @magician_bookings.each do |booking| %>
               <tr>
                 <td><%= booking.date.to_fs(:long_ordinal) %></td>
-                <td><%= booking.magician.email %></td>
                 <td><%= booking.experience.title %></td>
+                <td><%= booking.magician.email %></td>
                 <td><%= booking.status %></td>
               </tr>
                 <%= link_to 'Accept', accept_booking_path(booking), method: :patch %>
@@ -29,22 +30,36 @@
               <% end %>
             <% end %>
           </tbody>
+        </table>
+      </div>
+  </div>
+    <div class="card card-body bg-card mt-2">
+      <div class= "listings">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+            <th>Booking Date</th>
+            <th>Show Title</th>
+            <th>User</th>
+            <th>Status</th>
+            </tr>
+          </thead>
           <tbody>
-            <h5>Customer bookings</h5>
-            <% if @customer_bookings.empty? %>
-              <p>You have not listed any experiences</p>
-            <% else %>
-            <% @customer_bookings.each do |booking| %>
-              <tr>
-                <td><%= booking.date.to_fs(:long_ordinal) %></td>
-                <td><%= booking.customer.email %></td>
-                <td><%= booking.status %></td>
-                <td><%= booking.experience.title %></td>
-              </tr>
+              <h5>Shows You Have Requested</h5>
+              <% if @customer_bookings.empty? %>
+                <p>You have not requested any experiences yet</p>
+              <% else %>
+              <% @customer_bookings.each do |booking| %>
+                <tr>
+                  <td><%= booking.date.to_fs(:long_ordinal) %></td>
+                  <td><%= booking.customer.email %></td>
+                  <td><%= booking.status %></td>
+                  <td><%= booking.experience.title %></td>
+                </tr>
+                <% end %>
               <% end %>
-            <% end %>
           </tbody>
         </table>
+      </div>
     </div>
-  </div>
 </div>
