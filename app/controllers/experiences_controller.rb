@@ -2,7 +2,17 @@ class ExperiencesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @experiences = Experience.all
+    if params[:query].present?
+      sql_query = <<~SQL
+        experiences.title @@ :query
+        OR experiences.city @@ :query
+        OR experiences.category @@ :query
+        OR experiences.duration @@ :query
+      SQL
+      @experiences = Experience.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @experiences = Experience.all
+    end
   end
 
   def new
