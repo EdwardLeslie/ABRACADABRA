@@ -1,0 +1,18 @@
+
+<div class="container bg-card text-center mt-4">
+    <% @bookings.each do |booking| %>
+      <%= booking.id %>
+      <%= booking.status %>
+      <%= booking.customer.first_name %>
+      <%= booking.experience.title %>
+      <%= booking.experience.title %>
+    <div class="card-body btn m-3 p-2 card">
+      <%= simple_form_for booking, url: accept_booking_path(booking), method: :patch do |f| %>
+        <%= f.submit 'Accept' %>
+        <% end %>
+      <%= simple_form_for booking, url: decline_booking_path(booking), method: :patch do |f| %>
+        <%= f.submit 'Decline' %>
+      <% end %>
+    </div>
+    <% end %>
+</div>

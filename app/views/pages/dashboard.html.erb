@@ -16,7 +16,7 @@
               </tr>
           </thead>
           <tbody>
-              <h5>Shows You have Listed</h5>
+              <h5>Shows You Have Listed</h5>
             <% if Experience.where(user_id: current_user).empty? %>
               <p>You have not listed any experiences...</p>
             <% else %>
@@ -26,7 +26,7 @@
                 <td><%= experience.duration %></td>
                 <td><%= experience.category %></td>
                 <td><%= experience.bookings.count %></td>
-                <td><%= link_to "see the booking requests"  %></td>
+                <td><%= link_to "See the booking requests", magician_experience_bookings_path(current_user, experience) %></td>
               </tr>
               <% end %>
             <% end %>
