@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'experiences/new'
+  get 'experiences/new', to: "experiences#new"
   get '/dashboard', to: "pages#dashboard"
 
   # root to: "pages#home"
