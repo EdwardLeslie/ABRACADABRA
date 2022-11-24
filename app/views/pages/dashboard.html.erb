@@ -8,26 +8,26 @@
         <table class="table table-striped">
           <thead>
               <tr>
-                <th>Booking Date</th>
-                <th>Show Title</th>
-                <th>User</th>
-                <th>Status</th>
+                <th>Title</th>
+                <th>Duration</th>
+                <th>Category</th>
+                <th>Booking Requests</th>
+                <th> </th>
               </tr>
           </thead>
           <tbody>
               <h5>Shows You have Listed</h5>
-            <% if @magician_bookings.empty? %>
+            <% if Experience.where(user_id: current_user).empty? %>
               <p>You have not listed any experiences...</p>
             <% else %>
-              <% @magician_bookings.each do |booking| %>
+              <% Experience.where(user_id: current_user).each do |experience| %>
               <tr>
-                <td><%= booking.date.to_fs(:long_ordinal) %></td>
-                <td><%= booking.experience.title %></td>
-                <td><%= booking.magician.email %></td>
-                <td><%= booking.status %></td>
+                <td><%= experience.title %></td>
+                <td><%= experience.duration %></td>
+                <td><%= experience.category %></td>
+                <td><%= experience.bookings.count %></td>
+                <td><%= link_to "see the booking requests"  %></td>
               </tr>
-                <%= link_to 'Accept', accept_booking_path(booking), method: :patch %>
-                <%= link_to 'Decline', decline_booking_path(booking), method: :patch %>
               <% end %>
             <% end %>
           </tbody>
@@ -39,9 +39,9 @@
         <table class="table table-striped">
           <thead>
             <tr>
-            <th>Booking Date</th>
-            <th>Show Title</th>
-            <th>User</th>
+            <th>Requested Booking Date</th>
+            <th>Title</th>
+            <th>Magician</th>
             <th>Status</th>
             </tr>
           </thead>
@@ -53,9 +53,9 @@
               <% @customer_bookings.each do |booking| %>
                 <tr>
                   <td><%= booking.date.to_fs(:long_ordinal) %></td>
-                  <td><%= booking.customer.email %></td>
-                  <td><%= booking.status %></td>
                   <td><%= booking.experience.title %></td>
+                  <td><%= booking.magician.first_name %></td>
+                  <td><%= booking.status %></td>
                 </tr>
                 <% end %>
               <% end %>
