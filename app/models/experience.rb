@@ -1,12 +1,13 @@
 class Experience < ApplicationRecord
-  belongs_to :user
+  belongs_to :user #done
   has_many :bookings
-  has_one_attached :photo
+  has_one_attached :photo #done
   validates :title, presence: true
-  validates :description, presence: true
-  validates :city, presence: true
-  validates :price, presence: true
-  validates :duration, presence: true
-  validates :category, presence: true
-  validates :description, length: { minimum: 10, message: "10 character minimum" }
+  # validates :photo, presence: true
+  # validates :description, presence: true
+  # validates :city, presence: true
+  # validates :price, presence: true
+  # validates :duration, presence: true
+  # validates :category, presence: true
+  # validates :description, length: { minimum: 10, message: "10 character minimum" }
 end

@@ -3,7 +3,7 @@
       <h2><%= @experience.title %></h2>
       <%= @experience.description %>
       <% if @experience&.photo&.attached? %>
-          <div class= "rounded mx-auto d-block"><%= cl_image_tag experience.photo.key, height: 300, width: 400, crop: :fill%></div>
+          <div class= "rounded mx-auto d-block"><%= cl_image_tag @experience.photo.key, height: 300, width: 400, crop: :fill%></div>
         <% else %>
           <div class= "rounded mx-auto d-block m-3"><%=image_tag src="https://source.unsplash.com/random", alt: "random-image", width: 200 %></div>
         <% end %>
