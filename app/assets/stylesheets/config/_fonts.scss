@@ -11,6 +11,9 @@
 
 $body-font: "Barlow", "sans-serif";
 $headers-font: "Rasa", "serif";
+h1, h2, h3, h4, h5, h6, p, li, a {
+  color: black;
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
