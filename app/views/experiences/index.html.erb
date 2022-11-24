@@ -4,6 +4,18 @@
       <p> <strong>Throwing a party?</strong> </p>
       <p> Make your gathering special by adding a little magic. We have plenty of Magicians and Magic Shows to choose from.</p>
     </div>
+
+    <div class="search-form-control form-group">
+      <%= form_with url: experiences_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a magic show"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
+
+    <% end %>
     <div class="cards">
       <%= render "experience" %>
     </div>
