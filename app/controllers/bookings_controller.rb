@@ -1,11 +1,16 @@
 class BookingsController < ApplicationController
-  def accept
-    @booking.update!(status: 'approved')
-    redirect_to booking_path(@booking)
+  def index
+    # if params[:experience_id]
+      @bookings = current_user.experiences.find(params[:experience_id]).bookings
+    # else
+    #   @experiences = Experience.where(user_id: current_user)
+    # end
   end
 
   def decline
-    @booking.update!(status: 'declined')
+    @booking = Booking.find(params[:id])
+    @booking.status = "declined"
+    @booking.save
     redirect_to booking_path(@booking)
   end
 
@@ -27,6 +32,17 @@ class BookingsController < ApplicationController
     else
       render "experiences/show", status: :unprocessable_entity
     end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    @booking.save
+    redirect_to booking_path(@booking)
   end
 
   private
