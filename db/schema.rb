@@ -46,10 +46,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_133322) do
     t.text "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "customer_id", null: false #user creating the booking
+    t.bigint "customer_id", null: false
     t.bigint "experience_id", null: false
     t.date "date"
-    t.integer "magician_id" #person creating the magic show
+    t.integer "magician_id"
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
     t.index ["experience_id"], name: "index_bookings_on_experience_id"
   end
