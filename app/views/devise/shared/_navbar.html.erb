@@ -1,6 +1,8 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<nav class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= image_tag "hat.png", class: "logo", alt: "Wizard Hat", width: 50, height: 50 %>
+    <%= link_to root_path do %>
+      <%= image_tag "magic-hat-revised-text.svg", class: "logo", alt: "Magic Hat", width: 600, height: 150 %>
+    <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,10 +10,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+          <%# Move home link to be visible for all users, wether logged in or not %>
+            <%# <%= link_to "Home", root_path, class: "nav-link" %> 
           </li>
+        <% if user_signed_in? %>
 
           <li class="nav-item booking">
             <%= link_to "My Magic Shows", dashboard_path, class: "nav-link" %>
@@ -35,4 +38,4 @@
       </ul>
     </div>
   </div>
-</div>
+</nav>
