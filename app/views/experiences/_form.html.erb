@@ -1,4 +1,4 @@
-4<%= simple_form_for(experience) do |f| %>
+<%= simple_form_for(experience) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -7,12 +7,12 @@
   <%= f.input :description %>
   <%= f.input :category, collection: ["Childrens Magic", "Sleight of Hand", "Animal Magic", "Comedy Magic", "Illusionist", "Escapologist", "Mentalist"] %>
   <%= f.input :city %>
-  <%= f.input :duration, collection: ["2 hours", "4 hours", "6 hours"] %>
+  <%= f.input :duration, collection: ["2 h", "4 h", "6 h"] %>
   <%= f.input :price %>
   <%= f.input :photo, as: :file %>
   </div>
 
-  <div class="form-actions card card-body btn m-3 p-2 card">
+  <div class="form-actions card card-body btn m-3 p-2 card btn btn-secondary">
     <%= f.button :submit %>
   </div>
 <% end %>

@@ -1,53 +1,51 @@
-require 'faker'
 
-Experience.destroy_all
-puts "destroyed experiences"
-User.destroy_all
-puts "destroyed user"
-Booking.destroy_all
-puts "destroyed bookings"
+# require 'faker'
 
-User.create!(email: "test@test.com",
-            password: "123456",
-            first_name: "Jane/Joe",
-            last_name: "Smith",
-            nickname: "engineer")
+# Experience.destroy_all
+# puts "destroyed experiences"
+# User.destroy_all
+# puts "destroyed user"
+# Booking.destroy_all
+# puts "destroyed bookings"
 
-
-5.times do
-  new_user = User.create!(password: "password",
-                          email: Faker::Internet.email,
-                          first_name: Faker::Name.first_name,
-                          last_name: Faker::Name.last_name,
-                          nickname: Faker::JapaneseMedia::SwordArtOnline.game_name)
-
-   puts "#{new_user.id} was created"
-
-  8.times do
-    new_experience = Experience.create!(title: Faker::FunnyName.three_word_name,
-                                      description: Faker::Quote.most_interesting_man_in_the_world,
-                                      city: Faker::Address.city,
-                                      price: [50, 100, 200, 300, 400].sample,
-                                      duration: ["2 hours", "4 hours", "6 hours"].sample,
-                                      category: ["Childrens Magic", "Sleight of Hand", "Animal Magic", "Comedy Magic", "Illusionist", "Escapologist", "Mentalist"].sample,
-                                      user: new_user
-                                      )
-    puts "#{new_experience.id} was sucessfully created!"
-
-    3.times do
-      new_booking = Booking.create!(date: Faker::Date.forward(days: 23),
-                                    status: Booking::STATUS.sample,
-                                    customer: new_user,
-                                    magician: new_user,
-                                    experience: new_experience)
-
-      puts "#{new_booking.id} was created"
-    end
-  end
-end
+# User.create!(email: "test@test.com",
+#             password: "123456",
+#             first_name: "Jane/Joe",
+#             last_name: "Smith",
+#             nickname: "engineer")
 
 
+# 5.times do
+#   new_user = User.create!(password: "password",
+#                           email: Faker::Internet.email,
+#                           first_name: Faker::Name.first_name,
+#                           last_name: Faker::Name.last_name,
+#                           nickname: Faker::JapaneseMedia::SwordArtOnline.game_name)
 
+#    puts "#{new_user.id} was created"
+
+#   8.times do
+#     new_experience = Experience.create!(title: Faker::FunnyName.three_word_name,
+#                                       description: Faker::Quote.most_interesting_man_in_the_world,
+#                                       city: Faker::Address.city,
+#                                       price: [50, 100, 200, 300, 400].sample,
+#                                       duration: ["2 hours", "4 hours", "6 hours"].sample,
+#                                       category: ["Childrens Magic", "Sleight of Hand", "Animal Magic", "Comedy Magic", "Illusionist", "Escapologist", "Mentalist"].sample,
+#                                       user: new_user
+#                                       )
+#     puts "#{new_experience.id} was sucessfully created!"
+
+#     3.times do
+#       new_booking = Booking.create!(date: Faker::Date.forward(days: 23),
+#                                     status: Booking::STATUS.sample,
+#                                     customer: new_user,
+#                                     magician: new_user,
+#                                     experience: new_experience)
+
+#       puts "#{new_booking.id} was created"
+#     end
+#   end
+# end
 
 
 
