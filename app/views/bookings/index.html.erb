@@ -1,18 +1,49 @@
+<div class="container mb-3">
+  <div class="card card-body bg-card mt-2">
+    <h1 class="text-capitalize"> Booking Requests For <%= @experience.title %></h1>
+  </div>
+  <div class= "listings">
+    <div class="card card-body bg-card mt-2">
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                <th>Date Requested </th>
+                <th>ID</th>
+                <th>Customer Name</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th> </th>
 
-<div class="container bg-card text-center mt-4">
-    <% @bookings.each do |booking| %>
-      <%= booking.id %>
-      <%= booking.status %>
-      <%= booking.customer.first_name %>
-      <%= booking.experience.title %>
-      <%= booking.experience.title %>
-    <div class="card-body btn m-3 p-2 card">
-      <%= simple_form_for booking, url: accept_booking_path(booking), method: :patch do |f| %>
-        <%= f.submit 'Accept' %>
-        <% end %>
-      <%= simple_form_for booking, url: decline_booking_path(booking), method: :patch do |f| %>
-        <%= f.submit 'Decline' %>
-      <% end %>
-    </div>
-    <% end %>
-</div>
+              </tr>
+          </thead>
+          <tbody>
+
+            <% if @bookings.count == 0 %>
+                  <p>This listing has no bookings yet.... </p>
+              <% else %>
+                  <% @bookings.each do |booking| %>
+                <tr>
+                      <td><%= booking.date %></td>
+                      <td><%= booking.id %></td>
+                      <td><%= "#{booking.customer.first_name} #{booking.customer.last_name}" %></td>
+                      <td><%= booking.customer.email %></td>
+                      <% if booking.status == "accepted" %>
+                        <td><strong><%= booking.status %></strong></td>
+                      <% else %>
+                        <td><%= booking.status %></td>
+                        <% end %>
+                      <td><%= simple_form_for booking, url: accept_booking_path(booking), method: :patch do |f| %>
+                          <div class="btn pl-3"><%= f.submit 'Accept' %></div>
+                          <% end %>
+                      </td>
+                      <td><%= simple_form_for booking, url: decline_booking_path(booking), method: :patch do |f| %>
+                          <div class="btn"><%= f.submit 'Decline' %></div>
+                          <% end %>
+                      </td>
+                </tr>
+                <% end %>
+              <% end %>
+          </tbody>
+        </table>
+      </div>
+  </div>
