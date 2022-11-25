@@ -1,7 +1,7 @@
 
-<div class="container">
+<div class="container mb-4">
   <div class="card card-body bg-card mt-2">
-    <h1> My Magic Shows</h1>
+    <h1> My Magic Shows </h1>
   </div>
   <div class= "listings">
     <div class="card card-body bg-card mt-2">
@@ -9,24 +9,20 @@
           <thead>
               <tr>
                 <th>Title</th>
-                <th>Duration</th>
-                <th>Category</th>
                 <th>Booking Requests</th>
                 <th> </th>
               </tr>
           </thead>
           <tbody>
-              <h5>Shows You Have Listed</h5>
+              <h5><strong>Shows You Have Listed</strong></h5>
             <% if Experience.where(user_id: current_user).empty? %>
               <p>You have not listed any experiences...</p>
             <% else %>
               <% Experience.where(user_id: current_user).each do |experience| %>
               <tr>
                 <td><%= experience.title %></td>
-                <td><%= experience.duration %></td>
-                <td><%= experience.category %></td>
                 <td><%= experience.bookings.count %></td>
-                <td><%= link_to "See the booking requests", magician_experience_bookings_path(current_user, experience) %></td>
+                <td><div class="btn" style="text-decoration:none"><%= link_to "See the booking requests", magician_experience_bookings_path(current_user, experience) %></div></td>
               </tr>
               <% end %>
             <% end %>
@@ -42,11 +38,14 @@
             <th>Requested Booking Date</th>
             <th>Title</th>
             <th>Magician</th>
+            <th>Category</th>
+            <th>Duration</th>
+            <th>Price</th>
             <th>Status</th>
             </tr>
           </thead>
           <tbody>
-              <h5>Shows You Have Requested</h5>
+              <h5><strong>Shows You Have Requested</strong></h5>
               <% if @customer_bookings.empty? %>
                 <p>You have not requested any experiences yet</p>
               <% else %>
@@ -54,7 +53,10 @@
                 <tr>
                   <td><%= booking.date.to_fs(:long_ordinal) %></td>
                   <td><%= booking.experience.title %></td>
-                  <td><%= booking.magician.first_name %></td>
+                  <td><%= "#{booking.magician.first_name} #{booking.magician.last_name}" %></td>
+                  <td><%= booking.experience.category %></td>
+                  <td><%= booking.experience.duration %></td>
+                  <td><%= booking.experience.price %></td>
                   <td><%= booking.status %></td>
                 </tr>
                 <% end %>

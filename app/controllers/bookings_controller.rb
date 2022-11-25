@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def index
     # if params[:experience_id]
       @bookings = current_user.experiences.find(params[:experience_id]).bookings
+      @experience = Experience.find(params[:experience_id])
     # else
     #   @experiences = Experience.where(user_id: current_user)
     # end
@@ -11,7 +12,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.status = "declined"
     @booking.save
-    redirect_to booking_path(@booking)
+    redirect_to magician_experience_bookings_path(@booking.magician, @booking.experience)
   end
 
   def new
@@ -38,11 +39,19 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  # def redirect
+  #   if @booking.save
+  #     redirect_to booking_path(booking)
+  #   else
+  #     render "bookings/index", status: :unprocessable_entity
+  #   end
+  # end
+
   def accept
     @booking = Booking.find(params[:id])
     @booking.status = "accepted"
     @booking.save
-    redirect_to booking_path(@booking)
+    redirect_to magician_experience_bookings_path(@booking.magician, @booking.experience)
   end
 
   private

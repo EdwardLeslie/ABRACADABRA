@@ -13,10 +13,12 @@
       <p>Duration: <%= @experience.duration %> </p>
       <p>Category: <%= @experience.category %> </p>
       <p>Magician's Name: <%  %> </p>
-    <div class="not-blue card card-body btn m-3 p-2 card">
+    <div class="container" style="margin-top: 5px; margin-bottom: 5px; padding-top: 10px;">
+    <button type="button" class="btn btn-secondary">
       <%= link_to "Request This Magic Show", new_experience_booking_path(@experience) %>
     </div>
-    <div class="not-blue card card-body btn m-3 p-2 card">
+    <div class="container" style="margin-top: 5px; margin-bottom: 5px; padding-top: 10px;">
+    <button type="button" class="btn btn-secondary">
       <%= link_to "Back to All Magic Shows", experiences_path %>
     </div>
 </div>
