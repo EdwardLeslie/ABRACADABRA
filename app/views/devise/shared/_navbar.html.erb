@@ -1,7 +1,7 @@
 <nav class="navbar sticky-top navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path do %>
-      <%= image_tag "magic-hat-revised-text.svg", class: "logo", alt: "Magic Hat", width: 600, height: 70 %>
+      <%= image_tag "magic-hat-revised-text-mono.svg", class: "logo", alt: "Magic Hat", width: 400, height: 70 %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,22 +17,22 @@
         <% if user_signed_in? %>
 
           <li class="nav-item booking">
-            <%= link_to "My Magic Shows", dashboard_path, class: "nav-link" %>
+            <%= link_to "My Magic Shows", dashboard_path, class: "nav-link", id: "nav-items" %>
           <li class="nav-item experience/new">
 
-            <%= link_to "List a Magic Show", experiences_new_path, class: "nav-link" %>
+            <%= link_to "List a Magic Show", experiences_new_path, class: "nav-link", id: "nav-items" %>
           </li>
           <li class="nav-item dropdown">
            <%#<%= image_tag "https://previews.123rf.com/images/edunp/edunp2003/edunp200300056/143571212-vector-isolated-magician-or-magic-logo-black-and-white-icon-with-a-magician-hat.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
            <i class="fa-regular fa-user avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" , id: "nav-items"%>
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link", id: "nav-items" %>
           </li>
         <% end %>
       </ul>

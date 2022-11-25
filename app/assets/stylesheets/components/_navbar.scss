@@ -16,7 +16,32 @@
 }
 
 .fa-regular {
-  font-size: 30px;
-  padding: 5px;
+  font-size: 1rem;
+  // line-height: 2.25;
+  // padding: 5px;
+  color: $dark-gray;
+}
+
+.fa-regular:hover {
   color: $purple;
+}
+
+// .nav-test {
+//   color: rgba(242, 0, 0, 0.7);
+// }
+
+#nav-items {
+  color: $dark-gray;
+  padding-right: 1rem;
+  padding-left: .5rem;
+}
+
+#nav-items:hover {
+  color: $purple;
+}
+
+#navbarDropdown {
+  position: absolute;
+  right: -73px;
+  top: 11px;
 }
