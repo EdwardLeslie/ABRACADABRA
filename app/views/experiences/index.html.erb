@@ -2,8 +2,7 @@
   <div class="container">
     <h1><strong>Throwing a party?</strong></h1>
     <p>Make your gathering special by adding a little magic. We have plenty of Magicians and Magic Shows to choose from.</p>
-  </div>
-      <div class="search-form-control form-group mt-10" >
+      <div class="search-form-control form-group mt-10 justify-content-left" >
           <%= form_with url: experiences_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
             params[:query],
@@ -13,6 +12,7 @@
           <%= submit_tag "Search", class: "btn btn-secondary" %>
           <% end %>
       </div>
+  </div>
 </div>
 
 <div class="container bg-card text-center mt-5">
