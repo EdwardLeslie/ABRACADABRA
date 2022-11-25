@@ -12,10 +12,11 @@
       <p>Price: <%= @experience.price %> </p>
       <p>Duration: <%= @experience.duration %> </p>
       <p>Category: <%= @experience.category %> </p>
-    <div class="card card-body btn m-3 p-2 card">
+      <p>Magician's Name: <%  %> </p>
+    <div class="not-blue card card-body btn m-3 p-2 card">
       <%= link_to "Request This Magic Show", new_experience_booking_path(@experience) %>
     </div>
-    <div class="card card-body btn m-3 p-2 card">
+    <div class="not-blue card card-body btn m-3 p-2 card">
       <%= link_to "Back to All Magic Shows", experiences_path %>
     </div>
 </div>
