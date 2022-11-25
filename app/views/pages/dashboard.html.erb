@@ -37,10 +37,10 @@
             <tr>
             <th>Requested Booking Date</th>
             <th>Title</th>
+            <th>Magician</th>
+            <th>Category</th>
             <th>Duration</th>
             <th>Price</th>
-            <th>Category</th>
-            <th>Magician</th>
             <th>Status</th>
             </tr>
           </thead>
@@ -53,10 +53,10 @@
                 <tr>
                   <td><%= booking.date.to_fs(:long_ordinal) %></td>
                   <td><%= booking.experience.title %></td>
+                  <td><%= "#{booking.magician.first_name} #{booking.magician.last_name}" %></td>
+                  <td><%= booking.experience.category %></td>
                   <td><%= booking.experience.duration %></td>
                   <td><%= booking.experience.price %></td>
-                  <td><%= booking.experience.category %></td>
-                  <td><%= booking.magician.first_name %></td>
                   <td><%= booking.status %></td>
                 </tr>
                 <% end %>
