@@ -1,5 +1,5 @@
 class ExperiencesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :configure_permitted_parameters, if: :devise_controller?
 
   def index
     if params[:query].present?
