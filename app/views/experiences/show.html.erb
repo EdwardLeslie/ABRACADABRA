@@ -14,11 +14,9 @@
       <p>Category: <%= @experience.category %> </p>
       <p>Magician's Name: <%  %> </p>
     <div class="container" style="margin-top: 5px; margin-bottom: 5px; padding-top: 10px;">
-    <button type="button" class="btn btn-secondary">
-      <%= link_to "Request This Magic Show", new_experience_booking_path(@experience) %>
+      <%= link_to "Request This Magic Show", new_experience_booking_path(@experience), id: "white", class: "btn btn-secondary" %>
     </div>
     <div class="container" style="margin-top: 5px; margin-bottom: 5px; padding-top: 10px;">
-    <button type="button" class="btn btn-secondary">
-      <%= link_to "Back to All Magic Shows", experiences_path %>
+      <%= link_to "Back to All Magic Shows", experiences_path, id: "white", class: "btn btn-secondary" %>
     </div>
 </div>

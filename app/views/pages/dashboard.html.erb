@@ -26,7 +26,7 @@
                 <td><%= experience.duration %></td>
                 <td><%= experience.category %></td>
                 <td><%= experience.bookings.count %></td>
-                <td><%= link_to "See the booking requests", magician_experience_bookings_path(current_user, experience) %></td>
+                <td><%= link_to "See the booking requests", magician_experience_bookings_path(current_user, experience), id: "white", class: "btn btn-secondary" %></td>
               </tr>
               <% end %>
             <% end %>
