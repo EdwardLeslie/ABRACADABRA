@@ -28,7 +28,7 @@ User.create!(email: "test@test.com",
                                       description: Faker::Quote.most_interesting_man_in_the_world,
                                       city: Faker::Address.city,
                                       price: [50, 100, 200, 300, 400].sample,
-                                      duration: ["2 hours", "4 hours", "6 hours"].sample,
+                                      duration: ["2 h", "4 h", "6 h"].sample,
                                       category: ["Childrens Magic", "Sleight of Hand", "Animal Magic", "Comedy Magic", "Illusionist", "Escapologist", "Mentalist"].sample,
                                       user: new_user
                                       )
