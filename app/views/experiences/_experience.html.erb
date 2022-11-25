@@ -1,18 +1,24 @@
-
   <% @experiences.each do |experience| %>
     <%= link_to experience_path(experience) do %>
-      <div id="<%= dom_id experience %>"
-          class="card card-body jumpcard text-center bg-card d-inline-flex justify-content-center p-2 m-2 bd-highlight"
-          style="width: 300px"  >
-          <h4><%= experience.title %></h4>
-          <p><%= experience.city %></p>
-          <p><%= experience.category %></p>
-          <p><%= experience.duration %></p>
+      <div id="<%= dom_id experience %>" class="card-trip jumpcard">
         <% if experience.photo.attached? %>
-          <%= cl_image_tag experience.photo.key, height: 300, width: 280, crop: :fill %>
+          <%= cl_image_tag experience.photo.key, height: 300, crop: :fill%>
         <% else %>
-         <div class= "rounded mx-auto d-block"><%=image_tag src="https://source.unsplash.com/random", alt: "random-image", height: 300, width: 200 %></div>
+         <%=image_tag src="https://source.unsplash.com/random", alt: "random-image", height: 300, width: 200 %>
         <% end %>
+        <div class="card-trip-info">
+
+          <div class= "cards-infos">
+            <h4><%= experience.title %></h4>
+            <p><%= experience.category %></p>
+          </div>
+
+          <div>
+              <p><%= experience.city %></p>
+              <p><%= experience.duration %></p>
+          </div>
+
+        </div>
       </div>
     <% end %>
   <% end %>
