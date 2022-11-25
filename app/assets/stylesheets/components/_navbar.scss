@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: $purple;
+  background: $light-gray;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -18,5 +18,5 @@
 .fa-regular {
   font-size: 30px;
   padding: 5px;
-  color: rgba(0,0,0,.55);
+  color: $purple;
 }
