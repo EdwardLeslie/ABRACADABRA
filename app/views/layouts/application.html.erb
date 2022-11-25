@@ -13,12 +13,13 @@
   </head>
 
   <body>
-    <div style="min-height: 100vh" class="bg-purple">
-      <%= render "devise/shared/navbar" %>
-      <%= render "devise/shared/flashes" %>
-    
-      <%= yield %>
-    </div>
-    <%= render "devise/shared/footer" %>
+      <div class="d-flex flex-column min-vh-100">
+        <%= render "devise/shared/navbar" %>
+        <%= render "devise/shared/flashes" %>
+        <article class="flex-grow-1">
+        <%= yield %>
+        </article>
+        <%= render "devise/shared/footer" %>
+      </div>
   </body>
 </html>
