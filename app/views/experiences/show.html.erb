@@ -1,22 +1,42 @@
 
-<div class="container bg-card mt-2 text-center">
-      <h2><%= @experience.title %></h2>
-      <%= @experience.description %>
-      <% if @experience&.photo&.attached? %>
-          <div class= "rounded mx-auto d-block"><%= cl_image_tag @experience.photo.key, height: 300, width: 400, crop: :fill%></div>
-        <% else %>
-          <div class= "rounded mx-auto d-block m-3"><%=image_tag src="https://source.unsplash.com/random", alt: "random-image", width: 200 %></div>
-        <% end %>
-        <br>
-      <p>Location: <%= @experience.city %></p>
-      <p>Price: €<%= @experience.price %> </p>
-      <p>Duration: <%= @experience.duration %> </p>
-      <p>Category: <%= @experience.category %> </p>
-      <p>Magician's Name: <%  %> </p>
-    <div class="container" style="margin-top: 5px; margin-bottom: 5px; padding-top: 10px;">
-      <%= link_to "Request This Magic Show", new_experience_booking_path(@experience), id: "white", class: "btn btn-secondary" %>
-    </div>
-    <div class="container" style="margin-top: 5px; margin-bottom: 5px; padding-top: 10px;">
-      <%= link_to "Back to All Magic Shows", experiences_path, id: "white", class: "btn btn-secondary" %>
-    </div>
+<%# <div class="container bg-card mt-2 text-center"> %>
+<div class="container">
+   <div class="row">
+      <div class="col-sm-6 p-0" style="height: 80vh">
+          <div class="card card-body h-100">
+            <% if @experience&.photo&.attached? %>
+              <%= cl_image_tag @experience.photo.key, class: "w-100 h-100 image-fluid", style: "object-fit: cover", crop: :fill, gravity: :face%>
+            <% else %>
+              <%=image_tag src="https://source.unsplash.com/random", alt: "random-image", class: "w-100 h-100 image-fluid", style: "object-fit: cover", crop: :fill%>
+            <% end %>
+            <br>
+          </div>
+      </div>
+      <div class="col-sm-6 p-0" style="height: 80vh">
+        <div class="card h-100">
+          <h2 class="card-header"><p> <%= @experience.title %> </h2>
+          <div class="card-body">
+            <h5 class="card-title"></p><%= @experience.category %></h5>
+            <p class="card-text">
+              <%= @experience.description %>
+              <p>Location: <%= @experience.city %></p>
+              <p>Price: €<%= @experience.price %> </p>
+              <p>Duration: <%= @experience.duration %> </p>
+              </p>
+              <br>
+              <br>
+              <br>
+              <br>
+              
+                <div class="container" style="margin-top: 5px; margin-bottom: 5px; padding-top: 10px;">
+                  <%= link_to "Request This Magic Show", new_experience_booking_path(@experience), id: "white", class: "btn btn-secondary" %>
+                </div>
+                <br>
+                <br>
+                <div class="container" style="margin-top: 5px; margin-bottom: 5px; padding-top: 10px;">
+                  <%= link_to "Back to All Magic Shows", experiences_path, id: "white", class: "btn btn-secondary" %>
+                </div>
+          </div>
+        </div>
+      </div>
 </div>
